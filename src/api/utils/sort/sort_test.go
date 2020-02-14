@@ -2,6 +2,8 @@ package sort
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConstants(t *testing.T)  {
@@ -10,14 +12,24 @@ func TestConstants(t *testing.T)  {
 	}
 }
 
+// Using the Assert API instead of t.Error()
 func TestBubbleSortAscending(t *testing.T) {
 	// Init
 	elements := GetElements(10)
+	assert.NotNil(t, elements)
+	assert.EqualValues(t, 10, len(elements))
+	assert.EqualValues(t, 9, elements[0], "First element of unsorted array should 9")
+	assert.EqualValues(t, 0, elements[len(elements)-1], "Last element of unsorted array should 0")
 
 	// Execution
 	BubbleSort(elements)
 
 	// Validation
+	assert.NotNil(t, elements)
+	assert.EqualValues(t, 10, len(elements))
+	assert.EqualValues(t, 0, elements[0], "First element of sorted array should 0")
+	assert.EqualValues(t, 9, elements[len(elements)-1], "Last element of sorted array should 9")
+
 	if elements[0] != 0 {
 		// t.Error does not stop executing remaining test case!
 		t.Error("First element of sorted array should 0")
@@ -31,9 +43,16 @@ func TestBubbleSortAscending(t *testing.T) {
 func TestSortLibraryAPI(t *testing.T) {
 	// Init
 	elements := GetElements(10)
+	assert.NotNil(t, elements)
+	assert.EqualValues(t, 10, len(elements))
+	assert.EqualValues(t, 9, elements[0], "First element of unsorted array should 9")
+	assert.EqualValues(t, 0, elements[len(elements)-1], "Last element of unsorted array should 0")
 
 	// Execution
 	Sort(elements)
+	assert.NotNil(t, elements)
+	assert.EqualValues(t, 0, elements[0], "First element of sorted array should 0")
+	assert.EqualValues(t, 9, elements[len(elements)-1], "Last element of sorted array should 9")
 
 	// Validation
 	if elements[0] != 0 {

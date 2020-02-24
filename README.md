@@ -1,5 +1,8 @@
 # Go Testing
 These are some jottings and practice + reference code written during the "Go unit, integration, and functional testing" course which I did on Udemy. 
+<p>
+    <img src="https://github.com/anilj1/go-testing/raw/master/images/completion_certificate.jpg" width="400"/>
+</p>
 
 ## Types of Unit Testing
 In general, there are three types of unit testing performed in Go. They are:
